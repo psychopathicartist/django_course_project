@@ -21,14 +21,14 @@ def send_mailing(mailing):
         )
 
         Log.objects.create(
-            status='finished',
+            status='Успешно завершена',
             mailing=mailing,
             server_answer='Рассылка отправлена'
         )
 
     except SMTPException as error:
         Log.objects.create(
-            status='failed',
+            status='Ошибка',
             mailing=mailing,
             server_answer=error
         )

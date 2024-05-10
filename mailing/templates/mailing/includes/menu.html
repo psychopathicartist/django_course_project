@@ -1,24 +1,51 @@
 <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-5 bg-white border-bottom box-shadow">
     <nav class="navbar navbar-expand-md navbar-info fixed-top bg-info">
         <h3 class="text-light">Меню |</h3>
-            <div class="collapse navbar-collapse" id="navbars">
+        <div class="collapse navbar-collapse" id="navbars">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'mailing:main' %}"> Главная </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'mailing:message_list' %}"> Сообщения </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'mailing:client_list' %}"> Клиенты </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'mailing:list' %}"> Рассылки </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'mailing:log_list' %}"> Попытки рассылок </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-light" href="{% url 'blog:list' %}"> Блог </a>
+                </li>
+                {% if perms.users.view_user %}
+                    <li class="nav-item">
+                        <a class="nav-link text-light" href="{% url 'users:user_list' %}"> Пользователи </a>
+                    </li>
+                {% endif %}
+            </ul>
+            <div class="d-flex flex-row-reverse">
                 <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'mailing:main' %}"> Главная </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'mailing:message_list' %}"> Сообщения </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'mailing:client_list' %}"> Клиенты </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'mailing:list' %}"> Рассылки </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'mailing:log_list' %}"> Попытки рассылок </a>
-                    </li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{% url 'users:profile' %}">Профиль</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{% url 'users:logout' %}">Выйти</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{% url 'users:login' %}">Вход</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-light" href="{% url 'users:register' %}">Регистрация</a>
+                        </li>
+                    {% endif %}
                 </ul>
             </div>
+        </div>
     </nav>
 </div>

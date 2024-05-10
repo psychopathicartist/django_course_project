@@ -1,0 +1,42 @@
+[
+  {
+    "model": "mailing.client",
+    "pk": 1,
+    "fields": {
+      "email": "orlovams@stud.kai.ru",
+      "full_name": "Орлова Мария Сергеевна",
+      "comment": "Студенческая почта",
+      "author": 2
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": 2,
+    "fields": {
+      "email": "ilyavasi.levi@yandex.ru",
+      "full_name": "Васильева Шэрри Ильинична",
+      "comment": null,
+      "author": 2
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": 3,
+    "fields": {
+      "email": "oms1999@yandex.ru",
+      "full_name": "Орлова Мария Сергеевна",
+      "comment": null,
+      "author": 3
+    }
+  },
+  {
+    "model": "mailing.client",
+    "pk": 4,
+    "fields": {
+      "email": "ilyavasi.levi@yandex.ru",
+      "full_name": "Васильева Шэрри Ильинична",
+      "comment": "Личная почта",
+      "author": 3
+    }
+  }
+]

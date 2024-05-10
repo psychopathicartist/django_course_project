@@ -1,0 +1,62 @@
+[
+  {
+    "model": "mailing.log",
+    "pk": 1,
+    "fields": {
+      "last_date_and_time": "2024-05-10T20:23:01.455Z",
+      "status": "Успешно завершена",
+      "server_answer": "Рассылка отправлена",
+      "mailing": 3
+    }
+  },
+  {
+    "model": "mailing.log",
+    "pk": 2,
+    "fields": {
+      "last_date_and_time": "2024-05-10T20:23:01.548Z",
+      "status": "Успешно завершена",
+      "server_answer": "Рассылка отправлена",
+      "mailing": 1
+    }
+  },
+  {
+    "model": "mailing.log",
+    "pk": 3,
+    "fields": {
+      "last_date_and_time": "2024-05-10T20:25:01.381Z",
+      "status": "Успешно завершена",
+      "server_answer": "Рассылка отправлена",
+      "mailing": 3
+    }
+  },
+  {
+    "model": "mailing.log",
+    "pk": 4,
+    "fields": {
+      "last_date_and_time": "2024-05-10T20:25:01.465Z",
+      "status": "Успешно завершена",
+      "server_answer": "Рассылка отправлена",
+      "mailing": 1
+    }
+  },
+  {
+    "model": "mailing.log",
+    "pk": 5,
+    "fields": {
+      "last_date_and_time": "2024-05-10T20:27:01.260Z",
+      "status": "Успешно завершена",
+      "server_answer": "Рассылка отправлена",
+      "mailing": 3
+    }
+  },
+  {
+    "model": "mailing.log",
+    "pk": 6,
+    "fields": {
+      "last_date_and_time": "2024-05-10T20:27:01.347Z",
+      "status": "Успешно завершена",
+      "server_answer": "Рассылка отправлена",
+      "mailing": 1
+    }
+  }
+]

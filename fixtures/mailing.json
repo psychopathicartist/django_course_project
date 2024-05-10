@@ -1,0 +1,77 @@
+[
+  {
+    "model": "mailing.mailing",
+    "pk": 1,
+    "fields": {
+      "start_time": "20:16:37",
+      "end_time": "20:29:39",
+      "period": "Каждые 2 часа",
+      "status": "Запущена",
+      "message": 1,
+      "author": 2,
+      "clients": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 2,
+    "fields": {
+      "start_time": "16:30:00",
+      "end_time": "17:40:00",
+      "period": "Ежемесячно",
+      "status": "Завершена",
+      "message": 2,
+      "author": 2,
+      "clients": [
+        2
+      ]
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 3,
+    "fields": {
+      "start_time": "20:16:58",
+      "end_time": "20:29:59",
+      "period": "Каждые 2 часа",
+      "status": "Запущена",
+      "message": 3,
+      "author": 3,
+      "clients": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 4,
+    "fields": {
+      "start_time": "20:20:39",
+      "end_time": "20:30:00",
+      "period": "Ежедневно",
+      "status": "Запущена",
+      "message": 4,
+      "author": 3,
+      "clients": [
+        3
+      ]
+    }
+  },
+  {
+    "model": "mailing.mailing",
+    "pk": 5,
+    "fields": {
+      "start_time": "21:35:00",
+      "end_time": "22:15:00",
+      "period": "Еженедельно",
+      "status": "created",
+      "message": 5,
+      "author": 2,
+      "clients": [
+        1
+      ]
+    }
+  }
+]

@@ -61,7 +61,7 @@ class Command(BaseCommand):
                     scheduler.add_job(
                         send_mailing,
                         trigger='interval',
-                        minutes=2,
+                        minutes=2,  # Заменено на каждые 2 минуты для удобства проверки
                         id=f'{mailing.pk}',
                         args=[mailing],
                         max_instances=1,

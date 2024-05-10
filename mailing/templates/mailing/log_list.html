@@ -18,12 +18,12 @@
                                 <th><p>Ответ сервера</p></th>
                                 <th><p>Статус рассылки</p></th>
                             </tr>
-                            {% for object in object_list %}
+                            {% for log in logs %}
                             <tr>
-                                <td><p>{{ object.last_date_and_time }}</p></td>
-                                <td><p>{{ object.mailing }}</p></td>
-                                <td><p>{{ object.server_answer }}</p></td>
-                                <td><p>{{ object.status }}</p></td>
+                                <td><p>{{ log.last_date_and_time }}</p></td>
+                                <td><p>{{ log.mailing }}</p></td>
+                                <td><p>{{ log.server_answer }}</p></td>
+                                <td><p>{{ log.status }}</p></td>
                             </tr>
                             {% endfor %}
                         </table>
