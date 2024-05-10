@@ -1,0 +1,39 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+  <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="/static/images/message.jpg" class="rounded float img-fluid" alt="Message">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="{% url 'mailing:message_list' %}" class="btn btn-outline-primary">К списку сообщений</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="/static/images/clients.jpg" class="rounded float img-fluid"" alt="Clients">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="{% url 'mailing:client_list' %}" class="btn btn-outline-primary">К списку клиентов</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="card shadow-sm">
+              <img src="/static/images/mailing.jpg" class="rounded float img-fluid"" alt="Mailing">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-center">
+                  <a href="{% url 'mailing:list' %}" class="btn btn-outline-primary">К списку рассылок</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+{% endblock %}
