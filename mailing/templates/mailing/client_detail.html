@@ -1,0 +1,25 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+    <div class="col-12">
+        <a href="{% url 'mailing:client_list' %}" class="btn btn-outline-primary">К клиентам</a>
+    </div>
+    <div class="container d-flex justify-content-center">
+        <div class = "text-center">
+            <div class="card mb-4 box-shadow" style="max-width: 36rem;">
+                <div class="card-header">
+                    <h2 class="my-0 font-weight-normal">Клиент</h2>
+                </div>
+                <div class="card-body">
+                    <h4>ФИО:</h4>
+                    <p>{{ object.full_name }}</p>
+                    <h4>Почта:</h4>
+                    <p>{{ object.email }}</p>
+                    {% if object.comment %}
+                        <h4>Комментарий:</h4>
+                    {% endif %}
+                    <p>{{ object.comment }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
