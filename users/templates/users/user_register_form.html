@@ -1,0 +1,22 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+<div class="container d-flex justify-content-center">
+    <div class = "text-center">
+        <div class="card">
+            <div class="card-header">
+                Регистрация
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <p> *После регистрации Вам на почту придет письмо с подтверждением </p>
+                    <button type="submit" class="btn btn-outline-primary">
+                        Зарегистрироваться
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

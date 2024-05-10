@@ -1,0 +1,30 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+<div class="col-12">
+    <a href="{% url 'mailing:main' %}" class="btn btn-outline-primary">На главное меню</a>
+</div>
+<div class="container d-flex justify-content-center">
+    <div class = "text-center">
+        <div class="card" style="width: 24rem;">
+            <div class="card-header">
+                Редактирование профиля
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn btn-outline-primary">
+                        Сохранить
+                    </button>
+                </form>
+            </div>
+            {% if not perms.users.view_user %}
+                <div class="card-footer">
+                    <a href="{% url 'users:new-password' %}" class="btn btn-outline-warning">Сменить пароль</a>
+                    <a href="{% url 'users:user_delete' %}" class="btn btn-outline-warning">Удалить профиль</a>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'mailing/base.html' %}
+{% block content %}
+    <div class="container">
+        <div class="row text-center">
+            {% for object in object_list %}
+            <div class="col-4">
+                <div class="card mb-4 box-shadow my-3" style="height: 200px;">
+                    <div class="card-header">
+                        <h4 class="my-0 font-weight-normal">Пользователь</h4>
+                    </div>
+                    <div class="card-body">
+                        <p> {{ object.email }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="btn-group">
+                            <a href="{% url 'users:user_view' object.pk %}" class="btn btn-outline-primary mr-1">Просмотр</a>
+                            <a href="{% url 'users:user_manager_edit' object.pk %}" class="btn btn-outline-secondary mr-1">Изменение</a>
+                            {% if perms.users.user_delete %}
+                                <a href="{% url 'users:user_delete' object.pk %}" class="btn btn-outline-warning mr-1">Удаление</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
