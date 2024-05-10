@@ -17,9 +17,11 @@
                     </div>
                     <div class="card-footer">
                         <div class="btn-group">
-                            <a href="{% url 'mailing:client_view' object.pk %}" class="btn btn-outline-primary mr-1">Просмотр</a>
-                            <a href="{% url 'mailing:client_edit' object.pk %}" class="btn btn-outline-secondary mr-1">Изменение</a>
-                            <a href="{% url 'mailing:client_delete' object.pk %}" class="btn btn-outline-warning mr-1">Удаление</a>
+                            {% if object.author == user %}
+                                <a href="{% url 'mailing:client_view' object.pk %}" class="btn btn-outline-primary mr-1">Просмотр</a>
+                                <a href="{% url 'mailing:client_edit' object.pk %}" class="btn btn-outline-secondary mr-1">Изменение</a>
+                                <a href="{% url 'mailing:client_delete' object.pk %}" class="btn btn-outline-warning mr-1">Удаление</a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
