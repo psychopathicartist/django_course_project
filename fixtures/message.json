@@ -1,0 +1,47 @@
+[
+  {
+    "model": "mailing.message",
+    "pk": 1,
+    "fields": {
+      "subject": "Рассылка-напоминание",
+      "content": "Выпейте стакан воды. Это полезно для вашего организма",
+      "author": 2
+    }
+  },
+  {
+    "model": "mailing.message",
+    "pk": 2,
+    "fields": {
+      "subject": "Показания газа",
+      "content": "Не забудьте отправить показания газа",
+      "author": 2
+    }
+  },
+  {
+    "model": "mailing.message",
+    "pk": 3,
+    "fields": {
+      "subject": "Напоминание",
+      "content": "Дать котику вкусняшку",
+      "author": 3
+    }
+  },
+  {
+    "model": "mailing.message",
+    "pk": 4,
+    "fields": {
+      "subject": "Комплимент дня",
+      "content": "Вы выглядите прекрасно! Хорошего вам дня!",
+      "author": 3
+    }
+  },
+  {
+    "model": "mailing.message",
+    "pk": 5,
+    "fields": {
+      "subject": "Просто рассылка",
+      "content": "Ничего особенного, просто рассылка",
+      "author": 2
+    }
+  }
+]

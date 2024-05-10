@@ -1,0 +1,35 @@
+[
+  {
+    "model": "blog.blog",
+    "pk": 1,
+    "fields": {
+      "heading": "Рассылки - спасение для бизнеса",
+      "content": "Рассылки помогут вашему бизнесу не потерять важных клиентов",
+      "image": "blog/25159025-63e5641825502.jpg",
+      "created_at": "2024-05-10",
+      "views_count": 3
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 2,
+    "fields": {
+      "heading": "Рассылки - друзья хороших привычек",
+      "content": "Вы можете настроить рассылку для поддержания полезных привычек",
+      "image": "blog/1b74625750316b68becab5bfc2bc198c.jpg",
+      "created_at": "2024-05-10",
+      "views_count": 2
+    }
+  },
+  {
+    "model": "blog.blog",
+    "pk": 3,
+    "fields": {
+      "heading": "Рассылки - инструмент для поздравлений",
+      "content": "Вы можете использовать рассылку для того, чтобы поздравить людей с праздников",
+      "image": "blog/Fotolia_129951035_Subscription_Monthly_M.jpg",
+      "created_at": "2024-05-10",
+      "views_count": 1
+    }
+  }
+]
