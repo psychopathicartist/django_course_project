@@ -1,4 +1,5 @@
 {% extends 'mailing/base.html' %}
+{% load mymedia %}
 {% block content %}
   <div class="album py-5 bg-light">
       <div class="container">
@@ -15,7 +16,7 @@
           </div>
           <div class="col">
             <div class="card shadow-sm">
-              <img src="/static/images/clients.jpg" class="rounded float img-fluid"" alt="Clients">
+              <img src="/static/images/clients.jpg" class="rounded float img-fluid" alt="Clients">
               <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                   <a href="{% url 'mailing:client_list' %}" class="btn btn-outline-primary">К списку клиентов</a>
@@ -25,7 +26,7 @@
           </div>
           <div class="col">
             <div class="card shadow-sm">
-              <img src="/static/images/mailing.jpg" class="rounded float img-fluid"" alt="Mailing">
+              <img src="/static/images/mailing.jpg" class="rounded float img-fluid" alt="Mailing">
               <div class="card-body">
                 <div class="d-flex justify-content-between align-items-center">
                   <a href="{% url 'mailing:list' %}" class="btn btn-outline-primary">К списку рассылок</a>
@@ -33,6 +34,53 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="card mb-4 box-shadow my-3">
+            <div class="card-header text-center">
+                <h3>Записи блога</h3>
+            </div>
+        </div>
+        <div class="row text-center">
+            {% for blog in blogs %}
+            <div class="col-4">
+              <div class="card mb-4 box-shadow my-3" style="height: 530px;">
+                <div class="card-header">
+                  <h4 class="my-0 font-weight-normal">{{ blog.heading }}</h4>
+                </div>
+                <div class="card-body">
+                    <img src="{% mymedia blog.image %}" alt="blog.name" width="300" height="200">
+                </div>
+                <div class="card-footer">
+                    <p>{{ blog.content }}</p>
+                    <p>Просмотров {{ blog.views_count }}</p>
+                    <p>Дата создания {{ blog.created_at }}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="card mb-4 box-shadow my-3">
+            <div class="card-header text-center">
+                <h3>Статистика рассылок сайта</h3>
+            </div>
+            <div class="card-body">
+                <div class="row text-center ">
+                    <div class="col-12">
+                        <table class="table">
+                            <tr>
+                                <th><p>Количество рассылок</p></th>
+                                <th><p>Количество активных рассылок</p></th>
+                                <th><p>Количество уникальных клиентов</p></th>
+                            </tr>
+                            <tr>
+                                <td><p>{{ total_mailings }}</p></td>
+                                <td><p>{{ started_mailings }}</p></td>
+                                <td><p>{{ all_clients }}</p></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
         </div>
       </div>
   </div>
