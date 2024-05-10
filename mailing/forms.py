@@ -17,9 +17,15 @@ class MailingForm(StyleForMixin, forms.ModelForm):
     """
     Класс для отображения формы модели рассылки
     """
+    def __init__(self, *args, **kwargs):
+        user = kwargs.pop("user")
+        super().__init__(*args, **kwargs)
+        self.fields['clients'].queryset = Client.objects.filter(author=user)
+        self.fields['message'].queryset = Message.objects.filter(author=user)
+
     class Meta:
         model = Mailing
-        exclude = ['status']
+        exclude = ['author', 'status']
 
 
 class ClientForm(StyleForMixin, forms.ModelForm):
@@ -28,7 +34,7 @@ class ClientForm(StyleForMixin, forms.ModelForm):
     """
     class Meta:
         model = Client
-        fields = '__all__'
+        exclude = ['author']
 
 
 class MessageForm(StyleForMixin, forms.ModelForm):
@@ -37,4 +43,14 @@ class MessageForm(StyleForMixin, forms.ModelForm):
     """
     class Meta:
         model = Message
-        fields = '__all__'
+        exclude = ['author']
+
+
+class PermMailingForm(StyleForMixin, forms.ModelForm):
+    """
+    Класс для отображения формы модели рассылки
+    для редактирования менеджером
+    """
+    class Meta:
+        model = Mailing
+        fields = ['status']

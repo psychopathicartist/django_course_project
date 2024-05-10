@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
@@ -11,6 +12,7 @@ class Client(models.Model):
     email = models.EmailField(verbose_name='почта')
     full_name = models.CharField(max_length=200, verbose_name='ФИО')
     comment = models.CharField(max_length=300, verbose_name='комментарий', **NULLABLE)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='автор')
 
     def __str__(self):
         return f'{self.email} - {self.full_name}'
@@ -26,6 +28,7 @@ class Message(models.Model):
     """
     subject = models.CharField(max_length=150, verbose_name='тема')
     content = models.CharField(max_length=500, verbose_name='содержание')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='автор')
 
     def __str__(self):
         return f'{self.subject}: {self.content}'
@@ -68,6 +71,7 @@ class Mailing(models.Model):
     status = models.CharField(default='created', max_length=25, choices=STATUSES, verbose_name='статус рассылки')
     clients = models.ManyToManyField(Client, verbose_name='клиенты')
     message = models.OneToOneField(Message, on_delete=models.CASCADE, verbose_name='сообщение')
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, **NULLABLE, verbose_name='автор')
 
     def __str__(self):
         return f'{self.period} ({self.message})'
@@ -76,18 +80,26 @@ class Mailing(models.Model):
         verbose_name = 'Рассылка'
         verbose_name_plural = 'Рассылки'
 
+        permissions = [
+            ('change_status', 'Can change mailing status'),
+        ]
+
 
 class Log(models.Model):
     """
     Модель попытки рассылки
     """
-    STATUSES = {
-        'failed': 'Ошибка',
-        'finished': 'Успешно завершена',
-    }
+
+    STATUS_FAILED = 'Ошибка'
+    STATUS_FINISHED = 'Успешно завершена'
+
+    STATUSES = [
+        (STATUS_FAILED, 'Ошибка'),
+        (STATUS_FINISHED, 'Успешно завершена'),
+    ]
 
     last_date_and_time = models.DateTimeField(auto_now_add=timezone.now, verbose_name='дата и время последней рассылки')
-    status = models.CharField(default='created', max_length=15, choices=STATUSES, verbose_name='статус попытки рассылки')
+    status = models.CharField(default='created', max_length=20, choices=STATUSES, verbose_name='статус попытки рассылки')
     server_answer = models.CharField(max_length=300, verbose_name='ответ почтового сервера', **NULLABLE)
     mailing = models.ForeignKey(Mailing, on_delete=models.CASCADE, verbose_name='рассылка')
 
